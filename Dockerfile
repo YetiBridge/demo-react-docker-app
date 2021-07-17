@@ -1,12 +1,12 @@
 # pull the official base image
 FROM node:alpine
 # set working direction
-WORKDIR /app
+WORKDIR /usr/src/app
 # add `/app/node_modules/.bin` to $PATH
-ENV PATH /app/node_modules/.bin:$PATH
+ENV PATH /usr/src/app/node_modules/.bin:$PATH
 # install application dependencies
 COPY package.json ./
-RUN npm i
+RUN npm install
 # add app
 COPY . ./
 # start app
