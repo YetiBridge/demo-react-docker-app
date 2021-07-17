@@ -28,8 +28,9 @@ jobs:
         env: 
           DOCKER_USER: ${{ secrets.DOCKER_USER }}
           DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
-        run: |
-          docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
+        run: docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
       # Runs a single command using the runners shell
       - name: docker build
         run: docker build ./ -t wr8th3/demo-react-app-docker
+      - name: docker push 
+        run: docker push wr8th3/demo-react-app-docker
